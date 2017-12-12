@@ -2,6 +2,7 @@
 # INCOMPLETE
 
 from random import randint
+from time import sleep
 
 # resources
 food = 0
@@ -33,12 +34,16 @@ def monster_easy():
 	if chance == 2:
 		m_health = 4
 		print('\nYou have been attacked!')
+		sleep(2)
 		print('Monster has', m_health, 'health.')
+		sleep(1)
 		while m_health != 0:
 			health -= 1
 			m_health = m_health - attack
 			print("\nYou attacked!")
+			sleep(0.5)
 			print("Monster now has", m_health, "health left, and you have", health, "left.")
+			sleep(0.5)
 			if health == 0:
 				print("You were killed! Try again.")
 				break
@@ -59,12 +64,16 @@ def monster_medium():
 	if chance == 2:
 		m_health = 8
 		print('\nYou have been attacked!')
+		sleep(2)
 		print('Monster has', m_health, 'health.')
+		sleep(1)
 		while m_health != 0:
 			health -= 3
 			m_health = m_health - attack
 			print("\nYou attacked!")
+			sleep(0.5)
 			print("Monster now has", m_health, "health left, and you have", health, "left.")
+			sleep(0.5)
 			if health == 0:
 				print("You were killed! Try again.")
 				break
@@ -85,12 +94,16 @@ def monster_hard():
 	if chance == 2:
 		m_health = 15
 		print('\nYou have been attacked!')
+		sleep(2)
 		print('Monster has', m_health, 'health.')
+		sleep(1)
 		while m_health != 0:
 			health -= 6
 			m_health = m_health - attack
 			print("\nYou attacked!")
+			sleep(0.5)
 			print("Monster now has", m_health, "health left, and you have", health, "left.")
+			sleep(0.5)
 			if health == 0:
 				print("You were killed! Try again.")
 				break
