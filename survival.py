@@ -4,6 +4,8 @@
 from random import randint
 from time import sleep
 
+running = True
+
 # resources
 food = 0
 wood = 0
@@ -14,7 +16,8 @@ leather = 0
 # fighting
 attack = 1
 defense = 1
-health = 30
+rawhealth = 20
+health = 20
 
 # farming
 axe = 0
@@ -65,13 +68,13 @@ def monster_medium():
 	global killed
 	chance = randint(0, 5)
 	if chance == 2:
-		m_health = 8
+		m_health = 20
 		print('\nYou have been attacked!')
 		sleep(2)
 		print('Monster has', m_health, 'health.')
 		sleep(1)
 		while m_health != 0:
-			health -= 3
+			health -= 5
 			m_health = m_health - attack
 			print("\nYou attacked!")
 			sleep(0.5)
@@ -95,13 +98,13 @@ def monster_hard():
 	global killed
 	chance = randint(0, 9)
 	if chance == 2:
-		m_health = 15
+		m_health = 45
 		print('\nYou have been attacked!')
 		sleep(2)
 		print('Monster has', m_health, 'health.')
 		sleep(1)
 		while m_health != 0:
-			health -= 6
+			health -= 8
 			m_health = m_health - attack
 			print("\nYou attacked!")
 			sleep(0.5)
@@ -246,6 +249,8 @@ def eat_food():
 print("""Welcome! Try to survive as long as you can! First, you'll want to craft some weapons so that oyu can defend yourself from monsters.\n Type 'craft' to get a list of things you can make, or 'help' to get a list of what you can do. Type in 'i' to view your inventory and see how many resources you have, and 'f' to see how much food and water you have.""")
 
 while health > 0:
+	truehealth = defense * rawhealth
+	health = int(round(truehealth))
 	command = input('\nWhat do you want to do? ')
 	turn += 1
 	
@@ -271,8 +276,13 @@ while health > 0:
 		
 	##################### FOOD AND WATER LIST ##################### 
 	elif command == 'f':
-		print('Food - ', food)
-		print('Water - ', water)
+		print('Food -', food)
+		print('Water -', water)
+	
+	##################### INVENTORY ITEMS #####################
+	elif command == 'h':
+		print('Health -', health)
+		print('Armour -', defense)
 		
 	##################### HELP GUIDE #####################
 	elif command == 'help':
@@ -342,32 +352,28 @@ while health > 0:
 		material = input('Out of what? ')
 		if material == 'wood':
 			if wood > 19:
-				health += 5
-				defense = 6
+				defense = 1.5
 				wood -= 20
 				print('Wooden armour crafted!')
 			else:
 				print('You don\'t have enough resources! You only have', wood, 'wood.')
 		elif material == 'stone':
 			if stone > 29:
-				health += 8
-				defense = 12
+				defense = 2
 				stone -= 30
 				print('Stone armour crafted!')
 			else:
 				print('You don\'t have enough resources! You only have', stone, 'stone.')
 		elif material == 'diamond':
 			if diamond > 29:
-				health += 14
-				defense = 20
+				defense = 3
 				diamond -= 30
 				print('Diamond armour crafted!')
 			else:
 				print('You don\'t have enough resources! You only have', diamond, 'diamond.')
 		elif material == 'leather':
 			if leather > 11:
-				health += 6
-				defense = 9
+				defense = 1.88
 				leather -= 12
 				print('Leather armour crafted!')
 			else:
