@@ -23,7 +23,9 @@ pickaxe = 0
 turn = 0
 killed = 0
 
-########### MONSTERS #############
+###############################################################
+############################ MONSTERS #########################
+###############################################################
 ### easy monsters ###
 def monster_easy():
 	global health
@@ -114,7 +116,9 @@ def monster_hard():
 			killed += 1
 			print('You now have', food, "food, and", health, "health.")
 
-########### MATERIALS #############
+###############################################################
+######################### MATERIALS ###########################
+###############################################################
 ### wood ###
 def getting_wood():
 	global wood
@@ -235,16 +239,16 @@ def eat_food():
 	else:
 		print('You do not have enough food. You only have', food, 'food.')
 		
-##################
-## MAIN PROGRAM ##
-##################
+############################################################
+####################### MAIN PROGRAM #######################
+############################################################
 print("""Welcome! Try to survive as long as you can! First, you'll want to craft some weapons so that oyu can defend yourself from monsters.\n Type 'craft' to get a list of things you can make, or 'help' to get a list of what you can do. Type in 'i' to view your inventory and see how many resources you have, and 'f' to see how much food and water you have.""")
 
 while health > 0:
 	command = input('\nWhat do you want to do? ')
 	turn += 1
 	
-	### CRAFTING GUIDE ###
+	##################### CRAFTING GUIDE #####################
 	if command == 'craft':
 		print("""
 		* Wooden sword - 6 wood
@@ -257,30 +261,31 @@ while health > 0:
 		* Stone axe - 4 stone
 		* Diamond axe - 2 diamonds""")
 		
-	### INVENTORY ITEMS ###
+	##################### INVENTORY ITEMS #####################
 	elif command == 'i':
 		print('Wood -', wood)
 		print('Stone - ', stone)
 		print('Diamond - ', diamond)
 		
-	### FOOD AND WATER LIST ### 
+	##################### FOOD AND WATER LIST ##################### 
 	elif command == 'f':
 		print('Food - ', food)
 		print('Water - ', water)
 		
-	### HELP GUIDE ###
+	##################### HELP GUIDE #####################
 	elif command == 'help':
 		print("""
 		You want to make an axe so you can get wood. Type 'wood' in order to start getting wood. Without an axe, it will take more turns and you are more likely to get attacked. After this, try to make a pickaxe from wood to get stone. To make an axe, type 'craft axe'. Type in 'i' to view your inventory and see how many resources you have, and 'f' to see how much food and water you have.""")
 		
-	### GETTING WOOD ###
+	##################### GETTING WOOD #####################
 	elif command == 'wood':
 		getting_wood()
-		
+	
+	##################### GETTING STONE #####################
 	elif command == 'stone':
 		getting_stone()
 		
-	### CRAFTING AXE ###
+	##################### CRAFTING AXE #####################
 	elif command == 'craft axe':
 		material = input('Out of what? ')
 		if material == 'wood':
@@ -305,7 +310,7 @@ while health > 0:
 			else:
 				print('You don\'t have enough resources! You only have', diamond, 'diamond.')
 				
-	### CRAFTING SWORD ###
+	##################### CRAFTING SWORD #####################
 	elif command == 'craft sword':
 		material = input('Out of what? ')
 		if material == 'wood':
@@ -329,9 +334,13 @@ while health > 0:
 				print('Diamond sword crafted!')
 			else:
 				print('You don\'t have enough resources! You only have', diamond, 'diamond.')
+	
+	##################### CRAFTING ARMOUOR #####################
+	
 				
+	##################### EATING #####################
 	elif command == 'eat':
 		eat_food()
 
 if health <= 0:
-	print('You died! You survived', turn, 'turns, and killed', killed, "monsters.")
+	print('You died! You survived', turn, 'turns, and killed', killed, "monsters. Thanks for playing, try again soon!")
