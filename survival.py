@@ -9,6 +9,7 @@ food = 0
 wood = 0
 stone = 0
 diamond = 0
+leather = 0
 
 # fighting
 attack = 1
@@ -264,8 +265,9 @@ while health > 0:
 	##################### INVENTORY ITEMS #####################
 	elif command == 'i':
 		print('Wood -', wood)
-		print('Stone - ', stone)
-		print('Diamond - ', diamond)
+		print('Stone -', stone)
+		print('Diamond -', diamond)
+		print('Leather -', leather)
 		
 	##################### FOOD AND WATER LIST ##################### 
 	elif command == 'f':
@@ -335,9 +337,42 @@ while health > 0:
 			else:
 				print('You don\'t have enough resources! You only have', diamond, 'diamond.')
 	
-	##################### CRAFTING ARMOUOR #####################
-	
-				
+	##################### CRAFTING ARMOUR #####################
+	elif command == 'craft armour':
+		material = input('Out of what? ')
+		if material == 'wood':
+			if wood > 19:
+				health += 5
+				defense = 6
+				wood -= 20
+				print('Wooden armour crafted!')
+			else:
+				print('You don\'t have enough resources! You only have', wood, 'wood.')
+		elif material == 'stone':
+			if stone > 29:
+				health += 8
+				defense = 12
+				stone -= 30
+				print('Stone armour crafted!')
+			else:
+				print('You don\'t have enough resources! You only have', stone, 'stone.')
+		elif material == 'diamond':
+			if diamond > 29:
+				health += 14
+				defense = 20
+				diamond -= 30
+				print('Diamond armour crafted!')
+			else:
+				print('You don\'t have enough resources! You only have', diamond, 'diamond.')
+		elif material == 'leather':
+			if leather > 11:
+				health += 6
+				defense = 9
+				leather -= 12
+				print('Leather armour crafted!')
+			else:
+				print('You don\'t have enough resources! You only have', leather, 'leather.')
+
 	##################### EATING #####################
 	elif command == 'eat':
 		eat_food()
