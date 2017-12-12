@@ -32,18 +32,18 @@ def monster_easy():
 	chance = randint(0, 2)
 	if chance == 2:
 		m_health = 4
-		print('You have been attacked!')
+		print('\nYou have been attacked!')
 		print('Monster has', m_health, 'health.')
 		while m_health != 0:
 			health -= 1
 			m_health = m_health - attack
-			print("You attacked!")
+			print("\nYou attacked!")
 			print("Monster now has", m_health, "health left, and you have", health, "left.")
 			if health == 0:
 				print("You were killed! Try again.")
 				break
 		if m_health == 0:
-			print('You have defeated the monster!\n')
+			print('\nYou have defeated the monster!\n')
 			food += 1
 			turn += 1
 			killed += 1
@@ -58,18 +58,18 @@ def monster_medium():
 	chance = randint(0, 5)
 	if chance == 2:
 		m_health = 8
-		print('You have been attacked!')
+		print('\nYou have been attacked!')
 		print('Monster has', m_health, 'health.')
 		while m_health != 0:
 			health -= 3
 			m_health = m_health - attack
-			print("You attacked!")
+			print("\nYou attacked!")
 			print("Monster now has", m_health, "health left, and you have", health, "left.")
 			if health == 0:
 				print("You were killed! Try again.")
 				break
 		if m_health == 0:
-			print('You have defeated the monster!\n')
+			print('\nYou have defeated the monster!\n')
 			food += 2
 			turn += 1
 			killed += 1
@@ -84,18 +84,18 @@ def monster_hard():
 	chance = randint(0, 9)
 	if chance == 2:
 		m_health = 15
-		print('You have been attacked!')
+		print('\nYou have been attacked!')
 		print('Monster has', m_health, 'health.')
 		while m_health != 0:
 			health -= 6
 			m_health = m_health - attack
-			print("You attacked!")
+			print("\nYou attacked!")
 			print("Monster now has", m_health, "health left, and you have", health, "left.")
 			if health == 0:
 				print("You were killed! Try again.")
 				break
 		if m_health == 0:
-			print('You have defeated the monster!\n')
+			print('\nYou have defeated the monster!\n')
 			food += 3
 			turn += 1
 			killed += 1
@@ -112,10 +112,10 @@ def getting_wood():
 		if turn < 100:
 			for _ in range(4):
 				monster_easy()
-		if turn < 200:
+		if turn < 200 and turn > 300:
 			for _ in range(4):
 				monster_medium()
-		if turn < 300:
+		if turn > 300:
 			for _ in range(4):
 				monster_hard()
 		print('You now have', wood, 'wood.')
@@ -155,6 +155,60 @@ def getting_wood():
 		if turn < 300:
 			monster_hard()
 		print('You now have', wood, 'wood.')
+
+### stone ###
+def getting_stone():
+	global stone
+	global turn
+	if pickaxe == 0:
+		stone += 1
+		turn += 4
+		if turn < 100:
+			for _ in range(4):
+				monster_easy()
+		if turn < 200:
+			for _ in range(4):
+				monster_medium()
+		if turn < 300:
+			for _ in range(4):
+				monster_hard()
+		print('You now have', stone, 'stone.')
+	elif pickaxe == 1:
+		stone += 1
+		turn += 3
+		if turn < 100:
+			for _ in range(3):
+				monster_easy()
+		if turn < 200:
+			for _ in range(3):
+				monster_medium()
+		if turn < 300:
+			for _ in range(3):
+				monster_hard()
+		print('You now have', stone, 'stone.')
+	elif pickaxe == 2:
+		stone += 1
+		turn += 2
+		if turn < 100:
+			for _ in range(2):
+				monster_easy()
+		if turn < 200:
+			for _ in range(2):
+				monster_medium()
+		if turn < 300:
+			for _ in range(2):
+				monster_hard()
+		print('You now have', stone, 'stone.')
+	elif pickaxe == 3:
+		stone += 1
+		turn += 1
+		if turn < 100:
+			monster_easy()
+		if turn < 200:
+			monster_medium()
+		if turn < 300:
+			monster_hard()
+		print('You now have', stone, 'stone.')
 
 ############ HEALTH ##############
 ### eating food ###
@@ -209,6 +263,9 @@ while health > 0:
 	### GETTING WOOD ###
 	elif command == 'wood':
 		getting_wood()
+		
+	elif command == 'stone':
+		getting_stone()
 		
 	### CRAFTING AXE ###
 	elif command == 'craft axe':
