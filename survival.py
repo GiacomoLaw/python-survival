@@ -125,10 +125,10 @@ def getting_wood():
 		if turn < 100:
 			for _ in range(3):
 				monster_easy()
-		if turn < 200:
+		if turn < 200 and turn > 300:
 			for _ in range(3):
 				monster_medium()
-		if turn < 300:
+		if turn > 300:
 			for _ in range(3):
 				monster_hard()
 		print('You now have', wood, 'wood.')
@@ -138,10 +138,10 @@ def getting_wood():
 		if turn < 100:
 			for _ in range(2):
 				monster_easy()
-		if turn < 200:
+		if turn < 200 and turn > 300:
 			for _ in range(2):
 				monster_medium()
-		if turn < 300:
+		if turn > 300:
 			for _ in range(2):
 				monster_hard()
 		print('You now have', wood, 'wood.')
@@ -150,9 +150,9 @@ def getting_wood():
 		turn += 1
 		if turn < 100:
 			monster_easy()
-		if turn < 200:
+		if turn < 200 and turn > 300:
 			monster_medium()
-		if turn < 300:
+		if turn > 300:
 			monster_hard()
 		print('You now have', wood, 'wood.')
 
@@ -179,10 +179,10 @@ def getting_stone():
 		if turn < 100:
 			for _ in range(3):
 				monster_easy()
-		if turn < 200:
+		if turn < 200 and turn > 300:
 			for _ in range(3):
 				monster_medium()
-		if turn < 300:
+		if turn > 300:
 			for _ in range(3):
 				monster_hard()
 		print('You now have', stone, 'stone.')
@@ -192,10 +192,10 @@ def getting_stone():
 		if turn < 100:
 			for _ in range(2):
 				monster_easy()
-		if turn < 200:
+		if turn < 200 and turn > 300:
 			for _ in range(2):
 				monster_medium()
-		if turn < 300:
+		if turn > 300:
 			for _ in range(2):
 				monster_hard()
 		print('You now have', stone, 'stone.')
@@ -204,9 +204,9 @@ def getting_stone():
 		turn += 1
 		if turn < 100:
 			monster_easy()
-		if turn < 200:
+		if turn < 200 and turn > 300:
 			monster_medium()
-		if turn < 300:
+		if turn > 300:
 			monster_hard()
 		print('You now have', stone, 'stone.')
 
