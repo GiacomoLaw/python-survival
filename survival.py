@@ -5,7 +5,6 @@ from random import randint
 
 # resources
 food = 0
-water = 0
 wood = 0
 stone = 0
 diamond = 0
@@ -13,7 +12,7 @@ diamond = 0
 # fighting
 attack = 1
 defense = 1
-health = 20
+health = 30
 
 # farming
 axe = 0
@@ -32,7 +31,7 @@ def monster_easy():
 	global killed
 	chance = randint(0, 2)
 	if chance == 2:
-		m_health = 2
+		m_health = 4
 		print('You have been attacked!')
 		print('Monster has', m_health, 'health.')
 		while m_health != 0:
@@ -102,7 +101,8 @@ while health > 0:
 	
 	### CRAFTING GUIDE ###
 	if command == 'craft':
-		print("""		* Wooden sword - 6 wood
+		print("""
+		* Wooden sword - 6 wood
 		* Stone sword - 10 stone
 		* Diamond sword - 4 diamonds
 		* Wooden pickaxe - 4 wood
@@ -125,7 +125,8 @@ while health > 0:
 		
 	### HELP GUIDE ###
 	elif command == 'help':
-		print("""You want to make an axe so you can get wood. Type 'wood' in order to start getting wood. Without an axe, it will take more turns and you are more likely to get attacked. After this, try to make a pickaxe from wood to get stone. To make an axe, type 'craft axe'. Type in 'i' to view your inventory and see how many resources you have, and 'f' to see how much food and water you have.""")
+		print("""
+		You want to make an axe so you can get wood. Type 'wood' in order to start getting wood. Without an axe, it will take more turns and you are more likely to get attacked. After this, try to make a pickaxe from wood to get stone. To make an axe, type 'craft axe'. Type in 'i' to view your inventory and see how many resources you have, and 'f' to see how much food and water you have.""")
 		
 	### GETTING WOOD ###
 	elif command == 'wood':
@@ -153,6 +154,31 @@ while health > 0:
 				axe = 3
 				diamond -= 1
 				print('Diamond axe crafted!')
+			else:
+				print('You don\'t have enough resources! You only have', diamond, 'diamond.')
+				
+	### CRAFTING SWORD ###
+	elif command == 'craft sword':
+		material = input('Out of what? ')
+		if material == 'wood':
+			if wood > 5:
+				attack = 3
+				wood -= 6
+				print('Wood sword crafted!')
+			else:
+				print('You don\'t have enough resources! You only have', wood, 'wood.')
+		elif material == 'stone':
+			if stone > 9:
+				attack = 5
+				stone -= 10
+				print('Stone sword crafted!')
+			else:
+				print('You don\'t have enough resources! You only have', stone, 'stone.')
+		elif material == 'diamond':
+			if diamond > 3:
+				attack = 8
+				diamond -= 4
+				print('Diamond sword crafted!')
 			else:
 				print('You don\'t have enough resources! You only have', diamond, 'diamond.')
 				
