@@ -49,6 +49,58 @@ def monster_easy():
 			killed += 1
 			print('You now have', food, "food, and", health, "health.")
 
+### medium monsters ###
+def monster_medium():
+	global health
+	global food
+	global turn
+	global killed
+	chance = randint(0, 5)
+	if chance == 2:
+		m_health = 8
+		print('You have been attacked!')
+		print('Monster has', m_health, 'health.')
+		while m_health != 0:
+			health -= 3
+			m_health = m_health - attack
+			print("You attacked!")
+			print("Monster now has", m_health, "health left, and you have", health, "left.")
+			if health == 0:
+				print("You were killed! Try again.")
+				break
+		if m_health == 0:
+			print('You have defeated the monster!\n')
+			food += 2
+			turn += 1
+			killed += 1
+			print('You now have', food, "food, and", health, "health.")
+			
+### hard monsters ###
+def monster_hard():
+	global health
+	global food
+	global turn
+	global killed
+	chance = randint(0, 9)
+	if chance == 2:
+		m_health = 15
+		print('You have been attacked!')
+		print('Monster has', m_health, 'health.')
+		while m_health != 0:
+			health -= 6
+			m_health = m_health - attack
+			print("You attacked!")
+			print("Monster now has", m_health, "health left, and you have", health, "left.")
+			if health == 0:
+				print("You were killed! Try again.")
+				break
+		if m_health == 0:
+			print('You have defeated the monster!\n')
+			food += 3
+			turn += 1
+			killed += 1
+			print('You now have', food, "food, and", health, "health.")
+
 ########### MATERIALS #############
 ### wood ###
 def getting_wood():
@@ -57,8 +109,15 @@ def getting_wood():
 	if axe == 0:
 		wood += 1
 		turn += 4
-		for _ in range(4):
-			monster_easy()
+		if turn < 100:
+			for _ in range(4):
+				monster_easy()
+		if turn < 200:
+			for _ in range(4):
+				monster_medium()
+		if turn < 300:
+			for _ in range(4):
+				monster_hard()
 		print('You now have', wood, 'wood.')
 	elif axe == 1:
 		wood += 1
