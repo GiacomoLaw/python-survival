@@ -122,19 +122,38 @@ def getting_wood():
 	elif axe == 1:
 		wood += 1
 		turn += 3
-		for _ in range(3):
-			monster_easy()
+		if turn < 100:
+			for _ in range(3):
+				monster_easy()
+		if turn < 200:
+			for _ in range(3):
+				monster_medium()
+		if turn < 300:
+			for _ in range(3):
+				monster_hard()
 		print('You now have', wood, 'wood.')
 	elif axe == 2:
 		wood += 1
 		turn += 2
-		for _ in range(2):
-			monster_easy()
+		if turn < 100:
+			for _ in range(2):
+				monster_easy()
+		if turn < 200:
+			for _ in range(2):
+				monster_medium()
+		if turn < 300:
+			for _ in range(2):
+				monster_hard()
 		print('You now have', wood, 'wood.')
 	elif axe == 3:
 		wood += 1
 		turn += 1
-		monster_easy()
+		if turn < 100:
+			monster_easy()
+		if turn < 200:
+			monster_medium()
+		if turn < 300:
+			monster_hard()
 		print('You now have', wood, 'wood.')
 
 ############ HEALTH ##############
