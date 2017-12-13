@@ -28,8 +28,37 @@ turn = 0
 killed = 0
 
 ###############################################################
+############################ ANIMALS ##########################
+###############################################################
+### cow ###
+def cow():
+	global food
+	global leather
+	global turn
+	print('You encounter and attack a cow.')
+	turn += 1
+	sleep(1)
+	chance = randint(0, 4)
+	if chance == 1:
+		food += 1
+		print('You got some food. You now have', food, 'food.')
+	if chance == 2:
+		leather += 2
+		print('You found some leather. You now have', leather, 'leather.')
+	else:
+		print('You found nothing!')
+
+###############################################################
 ############################ MONSTERS #########################
 ###############################################################
+def battle():
+	if turn < 100:
+		monster_easy()
+	elif turn > 100 and turn < 200:
+		monster_medium()
+	elif turn > 300:
+		monster_hard()
+
 ### easy monsters ###
 def monster_easy():
 	global health
@@ -40,7 +69,7 @@ def monster_easy():
 	if chance == 2:
 		m_health = 4
 		print('\nYou have been attacked!')
-		sleep(2)
+		sleep(1)
 		print('Monster has', m_health, 'health.')
 		sleep(1)
 		while m_health != 0:
@@ -70,7 +99,7 @@ def monster_medium():
 	if chance == 2:
 		m_health = 20
 		print('\nYou have been attacked!')
-		sleep(2)
+		sleep(1)
 		print('Monster has', m_health, 'health.')
 		sleep(1)
 		while m_health != 0:
@@ -100,7 +129,7 @@ def monster_hard():
 	if chance == 2:
 		m_health = 45
 		print('\nYou have been attacked!')
-		sleep(2)
+		sleep(1)
 		print('Monster has', m_health, 'health.')
 		sleep(1)
 		while m_health != 0:
@@ -246,12 +275,14 @@ def eat_food():
 ############################################################
 ####################### MAIN PROGRAM #######################
 ############################################################
-print("""Welcome! Try to survive as long as you can! First, you'll want to craft some weapons so that oyu can defend yourself from monsters.\n Type 'craft' to get a list of things you can make, or 'help' to get a list of what you can do. Type in 'i' to view your inventory and see how many resources you have, and 'f' to see how much food and water you have.""")
+print("""Welcome! Try to survive as long as you can! First, you'll want to craft some weapons so that you can defend yourself from monsters.
+
+Type 'craft' to get a list of things you can make, or 'help' to get a list of what you can do. Type in 'i' to view your inventory and see how many resources you have, and 'f' to see how much food and water you have.""")
 
 while health > 0:
 	truehealth = defense * rawhealth
 	health = int(round(truehealth))
-	command = input('\nWhat do you want to do? ')
+	command = input('\n\nWhat do you want to do? ')
 	turn += 1
 	
 	##################### CRAFTING GUIDE #####################
@@ -382,6 +413,16 @@ while health > 0:
 	##################### EATING #####################
 	elif command == 'eat':
 		eat_food()
+		
+	##################### EXPLORING #####################
+	elif command == 'explore':
+		chance = randint(1, 20)
+		if chance < 4:
+			cow()
+		elif chance > 12:
+			battle()
+		else:
+			print('You found nothing!')
 
 if health <= 0:
 	print('You died! You survived', turn, 'turns, and killed', killed, "monsters. Thanks for playing, try again soon!")
