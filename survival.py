@@ -460,6 +460,9 @@ while health > 0:
 			cow()
 		elif chance > 12:
 			battle()
+		elif turns == 412:
+                        print('You encountered a huge monster!')
+                        boss()
 		else:
 			print('You found nothing!')
 
