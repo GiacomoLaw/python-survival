@@ -16,7 +16,6 @@ leather = 0
 # fighting
 attack = 1
 defense = 1
-rawhealth = 20
 health = 20
 
 # farming
@@ -277,11 +276,14 @@ def eat_food():
 	global health
 	if food >= 1:
 		food -= 1
-		health += 2
-		print('You have eaten food. You now have', food, 'food and your health is now', health, '.')
-	else:
-		print('You do not have enough food. You only have', food, 'food.')
-		
+		health = health + 2
+		print('You have eaten food. You now have', food, 'food and your health is now', health,'.')
+	elif food == 0:
+		print('You have no food!')
+
+
+
+
 ############################################################
 ####################### MAIN PROGRAM #######################
 ############################################################
@@ -290,8 +292,7 @@ print("""Welcome! Try to survive as long as you can! First, you'll want to craft
 Type 'craft' to get a list of things you can make, or 'help' to get a list of what you can do. Type in 'i' to view your inventory and see how many resources you have, and 'f' to see how much food and water you have.""")
 
 while health > 0:
-	truehealth = defense * rawhealth
-	health = int(round(truehealth))
+	health = int(round(defense * health))
 	command = input('\n\nWhat do you want to do? ')
 	turn += 1
 	
@@ -318,7 +319,7 @@ while health > 0:
 	##################### FOOD AND WATER LIST ##################### 
 	elif command == 'f':
 		print('Food -', food)
-		print('Water -', water)
+		# print('Water -', water)
 	
 	##################### INVENTORY ITEMS #####################
 	elif command == 'h':
