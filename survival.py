@@ -260,6 +260,16 @@ def getting_stone():
 			monster_hard()
 		print('You now have', stone, 'stone.')
 
+### diamonds ###
+def diamonds():
+        global diamond
+        chance = randint(1, 100)
+        if chance == 50:
+                print('You found a diamond!')
+                diamond += 1
+                print('You now have', diamond, 'diamonds.')
+                
+
 ############ HEALTH ##############
 ### eating food ###
 def eat_food():
