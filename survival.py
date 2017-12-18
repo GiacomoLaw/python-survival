@@ -148,6 +148,34 @@ def monster_hard():
 			killed += 1
 			print('You now have', food, "food, and", health, "health.")
 
+### boss monster ###
+def boss():
+        global health
+	global food
+	global turn
+	global killed
+        m_health = 100
+        print('\nYou have been attacked by a huge monster!')
+        sleep(1)
+        print('Monster has', m_health, 'health.')
+        sleep(1)
+        while m_health != 0:
+                health -= 12
+                m_health = m_health - attack
+                print("\nYou attacked!")
+                sleep(0.5)
+                print("Monster now has", m_health, "health left, and you have", health, "left.")
+                sleep(0.5)
+                if health == 0:
+                        print("You were killed! Try again.")
+                        break
+        if m_health == 0:
+                print('\nYou have defeated the monster!\n')
+                food += 6
+                turn += 1
+                killed += 1
+                print('You now have', food, "food, and", health, "health.")
+
 ###############################################################
 ######################### MATERIALS ###########################
 ###############################################################
