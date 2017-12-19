@@ -385,6 +385,31 @@ while health > 0:
 			else:
 				print('You don\'t have enough resources! You only have', diamond, 'diamond.')
 				
+	### crafting pickaxe ###
+	elif command == 'craft pickaxe':
+		material = input('Out of what? ')
+		if material == 'wood':
+			if wood > 3:
+				pickaxe = 1
+				wood -= 4
+				print('Wood pickaxe crafted!')
+			else:
+				print('You don\'t have enough resources! You only have', wood, 'wood.')
+		elif material == 'stone':
+			if stone > 5:
+				pickaxr = 2
+				stone -= 6
+				print('Stone pickaxe crafted!')
+			else:
+				print('You don\'t have enough resources! You only have', stone, 'stone.')
+		elif material == 'diamond':
+			if diamond > 2:
+				pickaxe = 3
+				diamond -= 3
+				print('Diamond pickaxe crafted!')
+			else:
+				print('You don\'t have enough resources! You only have', diamond, 'diamond.')
+				
 	##################### CRAFTING SWORD #####################
 	elif command == 'craft sword':
 		material = input('Out of what? ')
