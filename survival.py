@@ -47,7 +47,7 @@ def quest_starter():
 		extreme_quest()
 		
 def easy_quest():
-	chance = randint(1, 4)
+	chance = randint(1, 3)
 	global quest
 	global feathers
 	global quests_completed
@@ -62,25 +62,32 @@ def easy_quest():
 			print('\nThe person thanks you and hands over some stone. You now have', stone, 'stone.')
 			quest = False
 		else:
-			print('\nGo find three feathers.')
-			while quest is True:		
-				print('\nYou go exploring to try and find some feathers.')
-				sleep(1)
-				explore()
-				if feathers >= 3:
-					print('You already have 3 feathers. You gave them over. You now have', feathers, 'feathers.')
-					feathers -= 3
-					quests_completed += 1
-					stone += 2
-					print('\nThe person thanks you and hands over some stone. You now have', stone, 'stone.')
-					quest = False
-					break
+			print('\nGo find three feathers.')	
+			print('\nYou can go exploring to try and find some feathers.')
+			sleep(1)
+			while quest is True:
+				print('\nChoose an option.')
+				print('1 - Explore 10 times')
+				print('2 - Eat')
+				print('3 - Give up')
+				command = input('What option do you choose? ')
+				if command == '1':
+					for _ in range(10):
+						quest_explore()
+						if feathers >= 3:
+							print('\nYou found 3 feathers!')
+							feathers -= 3
+							quests_completed += 1
+							stone += 2
+							print('\nThe person thanks you and hands over some stone. You now have', stone, 'stone.')
+							quest = False
+							break
 	if chance == 2:
 		print("""You come across...""")
 	if chance == 3:
 		print("""You come across...""")
 
-def explore():
+def quest_explore():
 	chance = randint(1, 20)
 	if chance <= 12:
 		chance = randint(1, 2)
@@ -88,7 +95,7 @@ def explore():
 			cow()
 		if chance == 2:
 			chicken()
-	elif chance >= 15:
+	elif chance >= 17:
 		battle()
 	else:
 		print('You found nothing!')
@@ -100,34 +107,39 @@ def cow():
 	global food
 	global leather
 	global turn
-	print('You encounter and attack a cow.')
+	print('\nYou encounter and attack a cow.')
 	turn += 1
 	sleep(1)
 	chance = randint(0, 4)
 	if chance == 1:
 		food += 1
 		print('You got some food. You now have', food, 'food.')
+		sleep(1)
 	if chance == 2:
-		leather += 2
+		leather += 1
 		print('You found some leather. You now have', leather, 'leather.')
+		sleep(1)
 	else:
 		print('You found nothing!')
+		sleep(1)
 
 ### chicken ###
 def chicken():
 	global food
 	global turn
 	global feathers
-	print('You encounter and attack a chicken.')
+	print('\nYou encounter and attack a chicken.')
 	turn += 1
 	sleep(1)
 	chance = randint(0, 1)
 	if chance == 1:
 		food += 1
 		print('You got some food. You now have', food, 'food.')
+		sleep(1)
 	else:
 		feathers += 1
 		print('You found a feather! You now have', feathers, 'feathers.')
+		sleep(1)
 
 ###############################################################
 ############################ MONSTERS #########################
@@ -393,9 +405,7 @@ while health > 0:
 	##################### QUESTS #####################
 	if command == 'quest':
 		quest_starter()
-	
-	if command == 'c':
-		chicken()
+
 	##################### CRAFTING GUIDE #####################
 	if command == 'craft':
 		print("""
