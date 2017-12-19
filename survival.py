@@ -55,6 +55,7 @@ def easy_quest():
 	global turn
 	global leather
 	global wood
+	global food
 	if chance == 1:
 		print("""A person asks you to bring them 3 feathers.""")
 		if feathers >= 3:
@@ -69,7 +70,7 @@ def easy_quest():
 			sleep(1)
 			while quest is True:
 				print('\nChoose an option.')
-				print('1 - Explore 10 times')
+				print('1 - Explore a few times')
 				print('2 - Eat')
 				print('3 - Give up')
 				command = input('\nWhat option do you choose? ')
@@ -104,7 +105,7 @@ def easy_quest():
 			sleep(1)
 			while quest is True:
 				print('\nChoose an option.')
-				print('1 - Explore 10 times')
+				print('1 - Explore a few times')
 				print('2 - Eat')
 				print('3 - Give up')
 				command = input('\nWhat option do you choose? ')
@@ -126,7 +127,40 @@ def easy_quest():
 					turn += 1
 					break
 	if chance == 3:
-		print("""You come across...""")
+		print("""A person asks you to bring them 5 bots of food.""")
+		if food >= 5:
+			print('You already have 5 food. You gave them over. You now have', food, 'food.')
+			leather -= 5
+			quests_completed += 1
+			leather += 4
+			print('\nThe person thanks you and hands over some leather. You now have', leather, 'leather.')
+			quest = False
+		else:
+			print('\nGo and find five food.')	
+			sleep(1)
+			while quest is True:
+				print('\nChoose an option.')
+				print('1 - Explore a few times')
+				print('2 - Eat')
+				print('3 - Give up')
+				command = input('\nWhat option do you choose? ')
+				if command == '1':
+					for _ in range(10):
+						quest_explore()
+						if food >= 5:
+							print('\n\nYou found 5 food!')
+							food -= 5
+							quests_completed += 1
+							leather += 4
+							print('\nThe person thanks you and hands over some leather. You now have', leather, 'leather. You have completed', quests_completed, 'quests.')
+							quest = False
+							break
+				if command == '2':
+					eat_food()
+				if command == '3':
+					print('You gave up on the quest.')
+					turn += 1
+					break
 
 def quest_explore():
 	chance = randint(1, 20)
@@ -136,7 +170,7 @@ def quest_explore():
 			cow()
 		if chance == 2:
 			chicken()
-	elif chance >= 16:
+	elif chance >= 15:
 		battle()
 	else:
 		print('You found nothing!')
