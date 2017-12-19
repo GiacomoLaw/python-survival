@@ -305,7 +305,7 @@ while health > 0:
 		print('Diamond -', diamond)
 		print('Leather -', leather)
 		
-	##################### FOOD AND WATER LIST ##################### 
+	##################### FOOD AND WATER LIST #####################
 	elif command == 'f':
 		print('Food -', food)
 		print('Water -', water)
@@ -425,4 +425,5 @@ while health > 0:
 			print('You found nothing!')
 
 if health <= 0:
+	running = False
 	print('You died! You survived', turn, 'turns, and killed', killed, "monsters. Thanks for playing, try again soon!")
