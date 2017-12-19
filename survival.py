@@ -29,10 +29,14 @@ turn = 0
 killed = 0
 quests_completed = 0
 
+quest = False
+
 ###############################################################
 ############################ QUESTS ###########################
 ###############################################################
 def quest_starter():
+	global quest
+	quest = True
 	if turn < 59:
 		easy_quest()
 	if turn < 119 and turn > 60:
@@ -44,8 +48,28 @@ def quest_starter():
 		
 def easy_quest()
 	chance = randint(1, 4)
+	global quest
+	global feathers
+	global quests_completed
 		if chance == 1:
-			print("""You come across...""")
+			print("""A person asks you to bring them 3 feathers.""")
+				if feathers >= 3:
+					print('You already have 3 feathers. You gave them over. You now have', feathers, 'feathers.')
+					feathers -= 3
+					quests_completed += 1
+					print('\nThe person thanks you and hands over some stone. You now have', stone, 'stone.')
+					stone += 2
+					quest = False
+				else:
+					print('\nGo find three feathers.')
+					while quest is True:
+						if feathers >= 3
+							print('You already have 3 feathers. You gave them over. You now have', feathers, 'feathers.')
+							feathers -= 3
+							quests_completed += 1
+							print('\nThe person thanks you and hands over some stone. You now have', stone, 'stone.')
+							stone += 2
+							quest = False
 		if chance == 2:
 			print("""You come across...""")
 		if chance == 3:
