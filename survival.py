@@ -62,8 +62,7 @@ def easy_quest():
 			print('\nThe person thanks you and hands over some stone. You now have', stone, 'stone.')
 			quest = False
 		else:
-			print('\nGo find three feathers.')	
-			print('\nYou can go exploring to try and find some feathers.')
+			print('\nGo and find three feathers.')	
 			sleep(1)
 			while quest is True:
 				print('\nChoose an option.')
@@ -89,7 +88,40 @@ def easy_quest():
 					turn += 1
 					break
 	if chance == 2:
-		print("""You come across...""")
+		print("""A person asks you to bring them 3 pieces of leather.""")
+		if leather >= 3:
+			print('You already have 3 leather. You gave them over. You now have', leather, 'leather.')
+			leather -= 3
+			quests_completed += 1
+			wood += 6
+			print('\nThe person thanks you and hands over some wood. You now have', wood, 'wood.')
+			quest = False
+		else:
+			print('\nGo and find three leather.')	
+			sleep(1)
+			while quest is True:
+				print('\nChoose an option.')
+				print('1 - Explore 10 times')
+				print('2 - Eat')
+				print('3 - Give up')
+				command = input('\nWhat option do you choose? ')
+				if command == '1':
+					for _ in range(10):
+						quest_explore()
+						if leather >= 3:
+							print('\n\nYou found 3 leather!')
+							leather -= 3
+							quests_completed += 1
+							wood += 6
+							print('\nThe person thanks you and hands over some wood. You now have', wood, 'wood. You have completed', quests, 'quests.')
+							quest = False
+							break
+				if command == '2':
+					eat_food()
+				if command == '3':
+					print('You gave up on the quest.')
+					turn += 1
+					break
 	if chance == 3:
 		print("""You come across...""")
 
