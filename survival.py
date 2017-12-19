@@ -43,40 +43,55 @@ def quest_starter():
 		medium_quest()
 	if turn < 240 and turn > 120:
 		hard_quest()
-	else:
+	if turn > 241:
 		extreme_quest()
 		
-def easy_quest()
+def easy_quest():
 	chance = randint(1, 4)
 	global quest
 	global feathers
 	global quests_completed
-		if chance == 1:
-			print("""A person asks you to bring them 3 feathers.""")
+	global stone
+	if chance == 1:
+		print("""A person asks you to bring them 3 feathers.""")
+		if feathers >= 3:
+			print('You already have 3 feathers. You gave them over. You now have', feathers, 'feathers.')
+			feathers -= 3
+			quests_completed += 1
+			stone += 2
+			print('\nThe person thanks you and hands over some stone. You now have', stone, 'stone.')
+			quest = False
+		else:
+			print('\nGo find three feathers.')
+			while quest is True:		
+				print('\nYou go exploring to try and find some feathers.')
+				sleep(1)
+				explore()
 				if feathers >= 3:
 					print('You already have 3 feathers. You gave them over. You now have', feathers, 'feathers.')
 					feathers -= 3
 					quests_completed += 1
-					print('\nThe person thanks you and hands over some stone. You now have', stone, 'stone.')
 					stone += 2
+					print('\nThe person thanks you and hands over some stone. You now have', stone, 'stone.')
 					quest = False
-				else:
-					print('\nGo find three feathers.')
-					while quest is True:
-						if feathers >= 3
-							print('You already have 3 feathers. You gave them over. You now have', feathers, 'feathers.')
-							feathers -= 3
-							quests_completed += 1
-							print('\nThe person thanks you and hands over some stone. You now have', stone, 'stone.')
-							stone += 2
-							quest = False
-		if chance == 2:
-			print("""You come across...""")
-		if chance == 3:
-			print("""You come across...""")
-		else:
-			print("""baha""")
+					break
+	if chance == 2:
+		print("""You come across...""")
+	if chance == 3:
+		print("""You come across...""")
 
+def explore():
+	chance = randint(1, 20)
+	if chance <= 12:
+		chance = randint(1, 2)
+		if chance == 1:
+			cow()
+		if chance == 2:
+			chicken()
+	elif chance >= 15:
+		battle()
+	else:
+		print('You found nothing!')
 ###############################################################
 ############################ ANIMALS ##########################
 ###############################################################
@@ -102,6 +117,7 @@ def cow():
 def chicken():
 	global food
 	global turn
+	global feathers
 	print('You encounter and attack a chicken.')
 	turn += 1
 	sleep(1)
@@ -110,7 +126,8 @@ def chicken():
 		food += 1
 		print('You got some food. You now have', food, 'food.')
 	else:
-		print('You found nothing!')
+		feathers += 1
+		print('You found a feather! You now have', feathers, 'feathers.')
 
 ###############################################################
 ############################ MONSTERS #########################
@@ -335,10 +352,15 @@ def eat_food():
 		print('You have eaten food. You now have', food, 'food and your health is now', health, '.')
 	else:
 		print('You do not have enough food. You only have', food, 'food.')
-		
+
+############################################################
+############################################################
 ############################################################
 ####################### MAIN PROGRAM #######################
 ############################################################
+############################################################
+############################################################
+
 print("""Welcome! Try to survive as long as you can! First, you'll want to craft some weapons so that you can defend yourself from monsters.
 
 Type 'craft' to get a list of things you can make, or 'help' to get a list of what you can do. Type in 'i' to view your inventory and see how many resources you have, and 'f' to see how much food and water you have. to see all commands, thpe 'commands'.""")
@@ -372,6 +394,8 @@ while health > 0:
 	if command == 'quest':
 		quest_starter()
 	
+	if command == 'c':
+		chicken()
 	##################### CRAFTING GUIDE #####################
 	if command == 'craft':
 		print("""
@@ -528,17 +552,7 @@ while health > 0:
 		
 	##################### EXPLORING #####################
 	elif command == 'explore':
-		chance = randint(1, 20)
-		if chance < 4:
-			chance = randint(1, 2)
-			if chance == 1:
-				cow()
-			if chance == 2:
-				chicken()
-		elif chance > 12:
-			battle()
-		else:
-			print('You found nothing!')
+		explore()
 
 if health <= 0:
 	running = False
