@@ -52,6 +52,9 @@ def easy_quest():
 	global feathers
 	global quests_completed
 	global stone
+	global turn
+	global leather
+	global wood
 	if chance == 1:
 		print("""A person asks you to bring them 3 feathers.""")
 		if feathers >= 3:
@@ -403,6 +406,8 @@ def eat_food():
 	else:
 		print('You do not have enough food. You only have', food, 'food.')
 
+
+
 ############################################################
 ############################################################
 ############################################################
@@ -410,6 +415,8 @@ def eat_food():
 ############################################################
 ############################################################
 ############################################################
+
+
 
 print("""Welcome! Try to survive as long as you can! First, you'll want to craft some weapons so that you can defend yourself from monsters.
 
@@ -442,6 +449,13 @@ while health > 0:
 		
 	##################### QUESTS #####################
 	if command == 'quest':
+		if quests_completed < 1:
+			print('Quests can be difficult! Make sure you are ready.')
+			command = input('Do you want to continue? (yes or no) ')
+			if command == 'yes':
+				quest_starter()
+			else:
+				print('\nMake sure to prepare for next time.')
 		quest_starter()
 
 	##################### CRAFTING GUIDE #####################
