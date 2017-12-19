@@ -310,7 +310,7 @@ while health > 0:
 		print('Food -', food)
 		print('Water -', water)
 	
-	##################### INVENTORY ITEMS #####################
+	##################### HEALTH STATS #####################
 	elif command == 'h':
 		print('Health -', health)
 		print('Armour -', defense)
