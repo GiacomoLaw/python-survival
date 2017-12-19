@@ -37,13 +37,13 @@ quest = False
 def quest_starter():
 	global quest
 	quest = True
-	if turn < 59:
+	if turn < 99:
 		easy_quest()
-	if turn < 119 and turn > 60:
+	if turn < 299 and turn > 100:
 		medium_quest()
-	if turn < 240 and turn > 120:
+	if turn < 699 and turn > 300:
 		hard_quest()
-	if turn > 241:
+	if turn > 700:
 		extreme_quest()
 		
 def easy_quest():
