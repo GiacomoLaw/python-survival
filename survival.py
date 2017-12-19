@@ -82,6 +82,12 @@ def easy_quest():
 							print('\nThe person thanks you and hands over some stone. You now have', stone, 'stone. You have completed', quests, 'quests.')
 							quest = False
 							break
+				if command == '2':
+					eat_food()
+				if command == '3':
+					print('You gave up on the quest.')
+					turn += 1
+					break
 	if chance == 2:
 		print("""You come across...""")
 	if chance == 3:
