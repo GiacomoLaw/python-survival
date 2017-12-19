@@ -31,7 +31,7 @@ quests_completed = 0
 ###############################################################
 ############################ QUESTS ###########################
 ###############################################################
-def quest_levels():
+def quest_starter():
 	if turn < 59:
 		easy_quest()
 	if turn < 119 and turn > 60:
@@ -328,8 +328,13 @@ while health > 0:
 		craft sword - Craft a sword
 		craft armour - Craft armour
 		eat - Heal yourself
-		explore - Go exploring, encounter monsters, animals etc.
+		explore - Go exploring, encounter monsters, animals etc
+		quest - Get a quest and complete it
 		""")
+		
+	##################### QUESTS #####################
+	if command == 'quest':
+		quest_starter()
 	
 	##################### CRAFTING GUIDE #####################
 	if command == 'craft':
@@ -399,7 +404,7 @@ while health > 0:
 			else:
 				print('You don\'t have enough resources! You only have', diamond, 'diamond.')
 				
-	### crafting pickaxe ###
+	##################### CRAFTING PICKAXE #####################
 	elif command == 'craft pickaxe':
 		material = input('Out of what? ')
 		if material == 'wood':
