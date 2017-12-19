@@ -48,6 +48,20 @@ def cow():
 	else:
 		print('You found nothing!')
 
+### chicken ###
+def cow():
+	global food
+	global turn
+	print('You encounter and attack a chicken.')
+	turn += 1
+	sleep(1)
+	chance = randint(0, 1)
+	if chance == 1:
+		food += 1
+		print('You got some food. You now have', food, 'food.')
+	else:
+		print('You found nothing!')
+
 ###############################################################
 ############################ MONSTERS #########################
 ###############################################################
