@@ -291,13 +291,31 @@ def eat_food():
 ############################################################
 print("""Welcome! Try to survive as long as you can! First, you'll want to craft some weapons so that you can defend yourself from monsters.
 
-Type 'craft' to get a list of things you can make, or 'help' to get a list of what you can do. Type in 'i' to view your inventory and see how many resources you have, and 'f' to see how much food and water you have.""")
+Type 'craft' to get a list of things you can make, or 'help' to get a list of what you can do. Type in 'i' to view your inventory and see how many resources you have, and 'f' to see how much food and water you have. to see all commands, thpe 'commands'.""")
 
 while health > 0:
 	truehealth = defense * rawhealth
 	health = int(round(truehealth))
 	command = input('\n\nWhat do you want to do? ')
 	turn += 1
+	
+	if command == 'commands':
+		print("""
+		Commands - Command lost
+		Help - Get an idea of what to do
+		Craft - Craft items
+		i - Inventory items
+		f - Food item stats
+		h - Health stats
+		wood - Get wood
+		stone - Get stone
+		craft axe - Craft an axe
+		craft pickaxe - Craft a pickaxe
+		craft sword - Craft a sword
+		craft armour - Craft armour
+		eat - Heal yourself
+		explore - Go exploring, encounter monsters, animals etc.
+		""")
 	
 	##################### CRAFTING GUIDE #####################
 	if command == 'craft':
