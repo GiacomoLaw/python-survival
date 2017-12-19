@@ -49,7 +49,7 @@ def cow():
 		print('You found nothing!')
 
 ### chicken ###
-def cow():
+def chicken():
 	global food
 	global turn
 	print('You encounter and attack a chicken.')
@@ -432,7 +432,11 @@ while health > 0:
 	elif command == 'explore':
 		chance = randint(1, 20)
 		if chance < 4:
-			cow()
+			chance = randint(1, 2)
+			if chance == 1:
+				cow()
+			if chance == 2:
+				chicken()
 		elif chance > 12:
 			battle()
 		else:
