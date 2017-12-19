@@ -17,7 +17,6 @@ feathers = 0
 # fighting
 attack = 1
 defense = 1
-rawhealth = 20
 health = 20
 
 # farming
@@ -678,6 +677,34 @@ def monster_hard():
 			killed += 1
 			print('You now have', food, "food, and", health, "health.")
 
+### boss monster ###
+def boss():
+        global health
+	global food
+	global turn
+	global killed
+        m_health = 100
+        print('\nYou have been attacked by a huge monster!')
+        sleep(1)
+        print('Monster has', m_health, 'health.')
+        sleep(1)
+        while m_health != 0:
+                health -= 12
+                m_health = m_health - attack
+                print("\nYou attacked!")
+                sleep(0.5)
+                print("Monster now has", m_health, "health left, and you have", health, "left.")
+                sleep(0.5)
+                if health == 0:
+                        print("You were killed! Try again.")
+                        break
+        if m_health == 0:
+                print('\nYou have defeated the monster!\n')
+                food += 6
+                turn += 1
+                killed += 1
+                print('You now have', food, "food, and", health, "health.")
+
 ###############################################################
 ######################### MATERIALS ###########################
 ###############################################################
@@ -789,6 +816,16 @@ def getting_stone():
 			monster_hard()
 		print('You now have', stone, 'stone.')
 
+### diamonds ###
+def diamonds():
+        global diamond
+        chance = randint(1, 100)
+        if chance == 50:
+                print('You found a diamond!')
+                diamond += 1
+                print('You now have', diamond, 'diamonds.')
+                
+
 ############ HEALTH ##############
 ### eating food ###
 def eat_food():
@@ -800,8 +837,6 @@ def eat_food():
 		print('You have eaten food. You now have', food, 'food and your health is now', health, '.')
 	else:
 		print('You do not have enough food. You only have', food, 'food.')
-
-
 
 ############################################################
 ############################################################
@@ -818,8 +853,7 @@ print("""Welcome! Try to survive as long as you can! First, you'll want to craft
 Type 'craft' to get a list of things you can make, or 'help' to get a list of what you can do. Type in 'i' to view your inventory and see how many resources you have, and 'f' to see how much food and water you have. to see all commands, thpe 'commands'.""")
 
 while health > 0:
-	truehealth = defense * rawhealth
-	health = int(round(truehealth))
+	health = int(round(defense * health))
 	command = input('\n\nWhat do you want to do? ')
 	turn += 1
 	
@@ -873,7 +907,7 @@ while health > 0:
 	##################### FOOD AND WATER LIST #####################
 	elif command == 'f':
 		print('Food -', food)
-		print('Water -', water)
+		# print('Water -', water)
 	
 	##################### HEALTH STATS #####################
 	elif command == 'h':
