@@ -59,7 +59,7 @@ def easy_quest():
 	if chance == 1:
 		print("""A person asks you to bring them 3 feathers.""")
 		if feathers >= 3:
-			print('You already have 3 feathers. You gave them over. You now have', feathers, 'feathers.')
+			print('You already have 3 feathers. You give them over. You now have', feathers, 'feathers.')
 			feathers -= 3
 			quests_completed += 1
 			stone += 2
@@ -94,7 +94,7 @@ def easy_quest():
 	if chance == 2:
 		print("""A person asks you to bring them 3 pieces of leather.""")
 		if leather >= 3:
-			print('You already have 3 leather. You gave them over. You now have', leather, 'leather.')
+			print('You already have 3 leather. You give them over. You now have', leather, 'leather.')
 			leather -= 3
 			quests_completed += 1
 			wood += 6
@@ -129,7 +129,7 @@ def easy_quest():
 	if chance == 3:
 		print("""A person asks you to bring them 5 bots of food.""")
 		if food >= 5:
-			print('You already have 5 food. You gave them over. You now have', food, 'food.')
+			print('You already have 5 food. You give them over. You now have', food, 'food.')
 			leather -= 5
 			quests_completed += 1
 			leather += 4
@@ -178,7 +178,7 @@ def quest_explore():
 ############################ ANIMALS ##########################
 ###############################################################
 ### cow ###
-def cow():
+iest def cow():
 	global food
 	global leather
 	global turn
