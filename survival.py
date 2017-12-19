@@ -70,16 +70,16 @@ def easy_quest():
 				print('1 - Explore 10 times')
 				print('2 - Eat')
 				print('3 - Give up')
-				command = input('What option do you choose? ')
+				command = input('\nWhat option do you choose? ')
 				if command == '1':
 					for _ in range(10):
 						quest_explore()
 						if feathers >= 3:
-							print('\nYou found 3 feathers!')
+							print('\n\nYou found 3 feathers!')
 							feathers -= 3
 							quests_completed += 1
 							stone += 2
-							print('\nThe person thanks you and hands over some stone. You now have', stone, 'stone.')
+							print('\nThe person thanks you and hands over some stone. You now have', stone, 'stone. You have completed', quests, 'quests.')
 							quest = False
 							break
 	if chance == 2:
@@ -95,7 +95,7 @@ def quest_explore():
 			cow()
 		if chance == 2:
 			chicken()
-	elif chance >= 17:
+	elif chance >= 16:
 		battle()
 	else:
 		print('You found nothing!')
