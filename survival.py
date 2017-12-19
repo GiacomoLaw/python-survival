@@ -10,7 +10,7 @@ running = True
 food = 0
 wood = 0
 stone = 0
-diamond = 0
+diamond = 60
 leather = 0
 feathers = 0
 
@@ -178,7 +178,7 @@ def medium_quest():
 			print('You already have 20 wood. You give it over. You now have', wood, 'wood.')
 			wood -= 3
 			quests_completed += 1
-			stone += 
+			stone += 1 
 			print('\nThe person thanks you and hands over some stone. You now have', stone, 'stone.')
 			quest = False
 		else:
@@ -280,34 +280,22 @@ def medium_quest():
 
 def quest_explore():
 	chance = randint(1, 20)
-	if chance <= 12:
+	if chance <= 11:
 		chance = randint(1, 2)
 		if chance == 1:
 			cow()
 		if chance == 2:
 			chicken()
-	elif chance >= 15:
+	elif chance >= 12:
 		battle()
 	else:
 		print('You found nothing!')
 		
-def quest_explore_hard():
-	chance = randint(1, 20)
-	if chance <= 12:
-		chance = randint(1, 2)
-		if chance == 1:
-			cow()
-		if chance == 2:
-			chicken()
-	elif chance >= 14:
-		battle()
-	else:
-		print('You found nothing!')
 ###############################################################
 ############################ ANIMALS ##########################
 ###############################################################
 ### cow ###
-iest def cow():
+def cow():
 	global food
 	global leather
 	global turn
@@ -369,7 +357,7 @@ def monster_easy():
 		sleep(1)
 		print('Monster has', m_health, 'health.')
 		sleep(1)
-		while m_health != 0:
+		while m_health > 0:
 			health -= 1
 			m_health = m_health - attack
 			print("\nYou attacked!")
@@ -399,7 +387,7 @@ def monster_medium():
 		sleep(1)
 		print('Monster has', m_health, 'health.')
 		sleep(1)
-		while m_health != 0:
+		while m_health > 0:
 			health -= 5
 			m_health = m_health - attack
 			print("\nYou attacked!")
@@ -429,7 +417,7 @@ def monster_hard():
 		sleep(1)
 		print('Monster has', m_health, 'health.')
 		sleep(1)
-		while m_health != 0:
+		while m_health > 0:
 			health -= 8
 			m_health = m_health - attack
 			print("\nYou attacked!")
