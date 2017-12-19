@@ -10,7 +10,7 @@ running = True
 food = 0
 wood = 0
 stone = 0
-diamond = 60
+diamond = 0
 leather = 0
 feathers = 0
 
@@ -59,8 +59,9 @@ def easy_quest():
 	if chance == 1:
 		print("""A person asks you to bring them 3 feathers.""")
 		if feathers >= 3:
-			print('You already have 3 feathers. You give them over. You now have', feathers, 'feathers.')
+			print('You already have 3 feathers. You give them over.)
 			feathers -= 3
+			print('You now have', feathers, 'feathers.')
 			quests_completed += 1
 			stone += 2
 			print('\nThe person thanks you and hands over some stone. You now have', stone, 'stone.')
@@ -82,7 +83,7 @@ def easy_quest():
 							feathers -= 3
 							quests_completed += 1
 							stone += 2
-							print('\nThe person thanks you and hands over some stone. You now have', stone, 'stone. You have completed', quests, 'quests.')
+							print('\nThe person thanks you and hands over some stone. You now have', stone, 'stone. You have completed', quests_completed, 'quests.')
 							quest = False
 							break
 				if command == '2':
@@ -94,8 +95,9 @@ def easy_quest():
 	if chance == 2:
 		print("""A person asks you to bring them 3 pieces of leather.""")
 		if leather >= 3:
-			print('You already have 3 leather. You give them over. You now have', leather, 'leather.')
+			print('You already have 3 leather. You give them over.)
 			leather -= 3
+			print('You now have', leather, 'leather.')
 			quests_completed += 1
 			wood += 6
 			print('\nThe person thanks you and hands over some wood. You now have', wood, 'wood.')
@@ -117,7 +119,7 @@ def easy_quest():
 							leather -= 3
 							quests_completed += 1
 							wood += 6
-							print('\nThe person thanks you and hands over some wood. You now have', wood, 'wood. You have completed', quests, 'quests.')
+							print('\nThe person thanks you and hands over some wood. You now have', wood, 'wood. You have completed', quests_completed, 'quests.')
 							quest = False
 							break
 				if command == '2':
@@ -127,126 +129,11 @@ def easy_quest():
 					turn += 1
 					break
 	if chance == 3:
-		print("""A person asks you to bring them 5 bots of food.""")
+		print("""A person asks you to bring them 5 bits of food.""")
 		if food >= 5:
-			print('You already have 5 food. You give them over. You now have', food, 'food.')
-			leather -= 5
-			quests_completed += 1
-			leather += 4
-			print('\nThe person thanks you and hands over some leather. You now have', leather, 'leather.')
-			quest = False
-		else:
-			print('\nGo and find five food.')	
-			sleep(1)
-			while quest is True:
-				print('\nChoose an option.')
-				print('1 - Explore a few times')
-				print('2 - Eat')
-				print('3 - Give up')
-				command = input('\nWhat option do you choose? ')
-				if command == '1':
-					for _ in range(10):
-						quest_explore()
-						if food >= 5:
-							print('\n\nYou found 5 food!')
-							food -= 5
-							quests_completed += 1
-							leather += 4
-							print('\nThe person thanks you and hands over some leather. You now have', leather, 'leather. You have completed', quests_completed, 'quests.')
-							quest = False
-							break
-				if command == '2':
-					eat_food()
-				if command == '3':
-					print('You gave up on the quest.')
-					turn += 1
-					break
-					
-def medium_quest():
-	chance = randint(1, 3)
-	global quest
-	global feathers
-	global quests_completed
-	global stone
-	global turn
-	global leather
-	global wood
-	global food
-	if chance == 1:
-		print("""A person asks you to bring them 20 wood.""")
-		if wood >= 20:
-			print('You already have 20 wood. You give it over. You now have', wood, 'wood.')
-			wood -= 3
-			quests_completed += 1
-			stone += 1 
-			print('\nThe person thanks you and hands over some stone. You now have', stone, 'stone.')
-			quest = False
-		else:
-			print('\nGo and find three feathers.')	
-			sleep(1)
-			while quest is True:
-				print('\nChoose an option.')
-				print('1 - Explore a few times')
-				print('2 - Eat')
-				print('3 - Give up')
-				command = input('\nWhat option do you choose? ')
-				if command == '1':
-					for _ in range(10):
-						quest_explore()
-						if feathers >= 3:
-							print('\n\nYou found 3 feathers!')
-							feathers -= 3
-							quests_completed += 1
-							stone += 2
-							print('\nThe person thanks you and hands over some stone. You now have', stone, 'stone. You have completed', quests, 'quests.')
-							quest = False
-							break
-				if command == '2':
-					eat_food()
-				if command == '3':
-					print('You gave up on the quest.')
-					turn += 1
-					break
-	if chance == 2:
-		print("""A person asks you to bring them 3 pieces of leather.""")
-		if leather >= 3:
-			print('You already have 3 leather. You give them over. You now have', leather, 'leather.')
-			leather -= 3
-			quests_completed += 1
-			wood += 6
-			print('\nThe person thanks you and hands over some wood. You now have', wood, 'wood.')
-			quest = False
-		else:
-			print('\nGo and find three leather.')	
-			sleep(1)
-			while quest is True:
-				print('\nChoose an option.')
-				print('1 - Explore a few times')
-				print('2 - Eat')
-				print('3 - Give up')
-				command = input('\nWhat option do you choose? ')
-				if command == '1':
-					for _ in range(10):
-						quest_explore()
-						if leather >= 3:
-							print('\n\nYou found 3 leather!')
-							leather -= 3
-							quests_completed += 1
-							wood += 6
-							print('\nThe person thanks you and hands over some wood. You now have', wood, 'wood. You have completed', quests, 'quests.')
-							quest = False
-							break
-				if command == '2':
-					eat_food()
-				if command == '3':
-					print('You gave up on the quest.')
-					turn += 1
-					break
-	if chance == 3:
-		print("""A person asks you to bring them 5 bots of food.""")
-		if food >= 5:
-			print('You already have 5 food. You give them over. You now have', food, 'food.')
-			leather -= 5
+			print('You already have 5 food. You give them over.)
+			food -= 5
+			print('You now have', food, 'food.')
 			quests_completed += 1
 			leather += 4
 			print('\nThe person thanks you and hands over some leather. You now have', leather, 'leather.')
@@ -766,6 +653,14 @@ while health > 0:
 	##################### EXPLORING #####################
 	elif command == 'explore':
 		explore()
+
+	elif command == 'dev':		
+		food += 100
+		wood += 100
+		stone += 100
+		diamond += 100
+		leather += 100
+		feathers += 100
 
 if health <= 0:
 	running = False
