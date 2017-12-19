@@ -57,16 +57,16 @@ def easy_quest():
 	global wood
 	global food
 	if chance == 1:
-		print("""A person asks you to bring them 3 feathers.""")
+		print('\nA person asks you to bring them 3 feathers.')
 		if feathers >= 3:
-			print('You already have 3 feathers. You give them over.)
+			print('You already have 3 feathers. You give them over.')
 			feathers -= 3
 			print('You now have', feathers, 'feathers.')
 			quests_completed += 1
 			stone += 2
 			print('\nThe person thanks you and hands over some stone. You now have', stone, 'stone.')
 			quest = False
-		else:
+		if feathers <= 2:
 			print('\nGo and find three feathers.')	
 			sleep(1)
 			while quest is True:
@@ -93,16 +93,16 @@ def easy_quest():
 					turn += 1
 					break
 	if chance == 2:
-		print("""A person asks you to bring them 3 pieces of leather.""")
+		print('\nA person asks you to bring them 3 pieces of leather.')
 		if leather >= 3:
-			print('You already have 3 leather. You give them over.)
+			print('You already have 3 leather. You give them over.')
 			leather -= 3
 			print('You now have', leather, 'leather.')
 			quests_completed += 1
 			wood += 6
 			print('\nThe person thanks you and hands over some wood. You now have', wood, 'wood.')
 			quest = False
-		else:
+		if leather <= 2:
 			print('\nGo and find three leather.')	
 			sleep(1)
 			while quest is True:
@@ -129,16 +129,16 @@ def easy_quest():
 					turn += 1
 					break
 	if chance == 3:
-		print("""A person asks you to bring them 5 bits of food.""")
+		print('\nA person asks you to bring them 5 bits of food.')
 		if food >= 5:
-			print('You already have 5 food. You give them over.)
+			print('You already have 5 food. You give them over.')
 			food -= 5
 			print('You now have', food, 'food.')
 			quests_completed += 1
 			leather += 4
 			print('\nThe person thanks you and hands over some leather. You now have', leather, 'leather.')
 			quest = False
-		else:
+		if food <= 4:
 			print('\nGo and find five food.')	
 			sleep(1)
 			while quest is True:
@@ -489,12 +489,9 @@ while health > 0:
 	if command == 'quest':
 		if quests_completed < 1:
 			print('Quests can be difficult! Make sure you are ready.')
-			command = input('Do you want to continue? (yes or no) ')
-			if command == 'yes':
-				quest_starter()
-			else:
-				print('\nMake sure to prepare for next time.')
-		quest_starter()
+			quest_starter()
+		else:
+			quest_starter()
 
 	##################### CRAFTING GUIDE #####################
 	if command == 'craft':
