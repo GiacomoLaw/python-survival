@@ -12,6 +12,7 @@ wood = 0
 stone = 0
 diamond = 0
 leather = 0
+feathers = 0
 
 # fighting
 attack = 1
