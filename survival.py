@@ -40,6 +40,17 @@ def quest_starter():
 		hard_quest()
 	else:
 		extreme_quest()
+		
+def easy_quest()
+	chance = randint(1, 4)
+		if chance == 1:
+			print("""You come across...""")
+		if chance == 2:
+			print("""You come across...""")
+		if chance == 3:
+			print("""You come across...""")
+		else:
+			print("""baha""")
 
 ###############################################################
 ############################ ANIMALS ##########################
