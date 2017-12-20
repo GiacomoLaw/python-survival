@@ -593,29 +593,27 @@ def monster_easy():
 	global food
 	global turn
 	global killed
-	chance = randint(0, 2)
-	if chance == 2:
-		m_health = 4
-		print('\nYou have been attacked!')
-		sleep(1)
-		print('Monster has', m_health, 'health.')
-		sleep(1)
-		while m_health > 0:
-			health -= 1
-			m_health = m_health - attack
-			print("\nYou attacked!")
-			sleep(0.5)
-			print("Monster now has", m_health, "health left, and you have", health, "left.")
-			sleep(0.5)
-			if health == 0:
-				print("You were killed! Try again.")
-				break
-		if m_health == 0:
-			print('\nYou have defeated the monster!\n')
-			food += 1
-			turn += 1
-			killed += 1
-			print('You now have', food, "food, and", health, "health.")
+	m_health = 4
+	print('\nYou have been attacked!')
+	sleep(1)
+	print('Monster has', m_health, 'health.')
+	sleep(1)
+	while m_health > 0:
+		health -= 1
+		m_health = m_health - attack
+		print("\nYou attacked!")
+		sleep(0.5)
+		print("Monster now has", m_health, "health left, and you have", health, "left.")
+		sleep(0.5)
+		if health == 0:
+			print("You were killed! Try again.")
+			break
+	if m_health == 0:
+		print('\nYou have defeated the monster!\n')
+		food += 1
+		turn += 1
+		killed += 1
+		print('You now have', food, "food, and", health, "health.")
 
 ### medium monsters ###
 def monster_medium():
@@ -623,29 +621,27 @@ def monster_medium():
 	global food
 	global turn
 	global killed
-	chance = randint(0, 5)
-	if chance == 2:
-		m_health = 20
-		print('\nYou have been attacked!')
-		sleep(1)
-		print('Monster has', m_health, 'health.')
-		sleep(1)
-		while m_health > 0:
-			health -= 5
-			m_health = m_health - attack
-			print("\nYou attacked!")
-			sleep(0.5)
-			print("Monster now has", m_health, "health left, and you have", health, "left.")
-			sleep(0.5)
-			if health == 0:
-				print("You were killed! Try again.")
-				break
-		if m_health == 0:
-			print('\nYou have defeated the monster!\n')
-			food += 2
-			turn += 1
-			killed += 1
-			print('You now have', food, "food, and", health, "health.")
+	m_health = 20
+	print('\nYou have been attacked!')
+	sleep(1)
+	print('Monster has', m_health, 'health.')
+	sleep(1)
+	while m_health > 0:
+		health -= 5
+		m_health = m_health - attack
+		print("\nYou attacked!")
+		sleep(0.5)
+		print("Monster now has", m_health, "health left, and you have", health, "left.")
+		sleep(0.5)
+		if health == 0:
+			print("You were killed! Try again.")
+			break
+	if m_health == 0:
+		print('\nYou have defeated the monster!\n')
+		food += 2
+		turn += 1
+		killed += 1
+		print('You now have', food, "food, and", health, "health.")
 			
 ### hard monsters ###
 def monster_hard():
@@ -653,57 +649,55 @@ def monster_hard():
 	global food
 	global turn
 	global killed
-	chance = randint(0, 9)
-	if chance == 2:
-		m_health = 45
-		print('\nYou have been attacked!')
-		sleep(1)
-		print('Monster has', m_health, 'health.')
-		sleep(1)
-		while m_health > 0:
-			health -= 8
-			m_health = m_health - attack
-			print("\nYou attacked!")
-			sleep(0.5)
-			print("Monster now has", m_health, "health left, and you have", health, "left.")
-			sleep(0.5)
-			if health == 0:
-				print("You were killed! Try again.")
-				break
-		if m_health == 0:
-			print('\nYou have defeated the monster!\n')
-			food += 3
-			turn += 1
-			killed += 1
-			print('You now have', food, "food, and", health, "health.")
+	m_health = 45
+	print('\nYou have been attacked!')
+	sleep(1)
+	print('Monster has', m_health, 'health.')
+	sleep(1)
+	while m_health > 0:
+		health -= 8
+		m_health = m_health - attack
+		print("\nYou attacked!")
+		sleep(0.5)
+		print("Monster now has", m_health, "health left, and you have", health, "left.")
+		sleep(0.5)
+		if health == 0:
+			print("You were killed! Try again.")
+			break
+	if m_health == 0:
+		print('\nYou have defeated the monster!\n')
+		food += 3
+		turn += 1
+		killed += 1
+		print('You now have', food, "food, and", health, "health.")
 
 ### boss monster ###
 def boss():
-        global health
+	global health
 	global food
 	global turn
 	global killed
-        m_health = 100
-        print('\nYou have been attacked by a huge monster!')
-        sleep(1)
-        print('Monster has', m_health, 'health.')
-        sleep(1)
-        while m_health != 0:
-                health -= 12
-                m_health = m_health - attack
-                print("\nYou attacked!")
-                sleep(0.5)
-                print("Monster now has", m_health, "health left, and you have", health, "left.")
-                sleep(0.5)
-                if health == 0:
-                        print("You were killed! Try again.")
-                        break
-        if m_health == 0:
-                print('\nYou have defeated the monster!\n')
-                food += 6
-                turn += 1
-                killed += 1
-                print('You now have', food, "food, and", health, "health.")
+	m_health = 100
+	print('\nYou have been attacked by a huge monster!')
+	sleep(1)
+	print('Monster has', m_health, 'health.')
+	sleep(1)
+	while m_health != 0:
+		health -= 12
+		m_health = m_health - attack
+		print("\nYou attacked!")
+		sleep(0.5)
+		print("Monster now has", m_health, "health left, and you have", health, "left.")
+		sleep(0.5)
+		if health == 0:
+			print("You were killed! Try again.")
+			break
+	if m_health == 0:
+		print('\nYou have defeated the monster!\n')
+		food += 6
+		turn += 1
+		killed += 1
+		print('You now have', food, "food, and", health, "health.")
 
 ###############################################################
 ######################### MATERIALS ###########################
@@ -770,61 +764,88 @@ def getting_stone():
 		stone += 1
 		turn += 4
 		if turn < 100:
-			for _ in range(4):
-				monster_easy()
-		if turn < 200:
-			for _ in range(4):
-				monster_medium()
+			chance = randint(0, 3)
+			if chance == 0 or chance == 1:
+				for _ in range(2):
+					monster_easy()
+		if turn < 200 and turn > 300:
+			chance = randint(0, 3)
+			if chance == 0 or chance == 1:
+				for _ in range(2):
+					monster_medium()
 		if turn < 300:
-			for _ in range(4):
-				monster_hard()
+			chance = randint(0, 3)
+			if chance == 0 or chance == 1:
+				for _ in range(2):
+					monster_hard()
 		print('You now have', stone, 'stone.')
 	elif pickaxe == 1:
 		stone += 1
 		turn += 3
 		if turn < 100:
-			for _ in range(3):
-				monster_easy()
+			chance = randint(0, 5)
+			if chance == 0 or chance == 1:
+				for _ in range(2):
+					monster_easy()
 		if turn < 200 and turn > 300:
-			for _ in range(3):
-				monster_medium()
+			chance = randint(0, 5)
+			if chance == 0 or chance == 1:
+				for _ in range(2):
+					monster_medium()
 		if turn > 300:
-			for _ in range(3):
-				monster_hard()
+			chance = randint(0, 5)
+			if chance == 0 or chance == 1:
+				for _ in range(2):
+					monster_hard()
 		print('You now have', stone, 'stone.')
 	elif pickaxe == 2:
 		stone += 1
 		turn += 2
 		if turn < 100:
-			for _ in range(2):
-				monster_easy()
+			chance = randint(0, 7)
+			if chance == 0 or chance == 1:
+				for _ in range(2):
+					monster_easy()
 		if turn < 200 and turn > 300:
-			for _ in range(2):
-				monster_medium()
+			chance = randint(0, 7)
+			if chance == 0 or chance == 1:
+				for _ in range(2):
+					monster_mediun()
 		if turn > 300:
-			for _ in range(2):
-				monster_hard()
+			chance = randint(0, 7)
+			if chance == 0 or chance == 1:
+				for _ in range(2):
+					monster_hard()
 		print('You now have', stone, 'stone.')
 	elif pickaxe == 3:
 		stone += 1
 		turn += 1
 		if turn < 100:
-			monster_easy()
+			chance = randint(0, 10)
+			if chance == 0 or chance == 1:
+				for _ in range(2):
+					monster_easy()
 		if turn < 200 and turn > 300:
-			monster_medium()
+			chance = randint(0, 10)
+			if chance == 0 or chance == 1:
+				for _ in range(2):
+					monster_medium()
 		if turn > 300:
-			monster_hard()
+			chance = randint(0, 10)
+			if chance == 0 or chance == 1:
+				for _ in range(2):
+					monster_hard()
 		print('You now have', stone, 'stone.')
 
 ### diamonds ###
 def diamonds():
-        global diamond
-        chance = randint(1, 100)
-        if chance == 50:
-                print('You found a diamond!')
-                diamond += 1
-                print('You now have', diamond, 'diamonds.')
-                
+	global diamond
+	chance = randint(1, 100)
+	if chance == 50:
+		print('You found a diamond!')
+		diamond += 1
+		print('You now have', diamond, 'diamonds.')
+		
 
 ############ HEALTH ##############
 ### eating food ###
@@ -838,6 +859,7 @@ def eat_food():
 	else:
 		print('You do not have enough food. You only have', food, 'food.')
 
+
 ############################################################
 ############################################################
 ############################################################
@@ -846,18 +868,20 @@ def eat_food():
 ############################################################
 ############################################################
 
-
-
 print("""Welcome! Try to survive as long as you can! First, you'll want to craft some weapons so that you can defend yourself from monsters.
 
-Type 'craft' to get a list of things you can make, or 'help' to get a list of what you can do. Type in 'i' to view your inventory and see how many resources you have, and 'f' to see how much food and water you have. to see all commands, thpe 'commands'.""")
+Type 'craft' to get a list of things you can make, or 'help' to get a list of what you can do. Type in 'i' to view your inventory and see how many resources you have, and 'f' to see how much food and water you have. To see all commands, type 'commands'.""")
 
 while health > 0:
 	health = int(round(defense * health))
 	command = input('\n\nWhat do you want to do? ')
 	turn += 1
+
+	if health <= 0:
+		running = False
+		print('You died! You survived', turn, 'turns, and killed', killed, "monsters. Thanks for playing, try again soon!")
 	
-	if command == 'commands':
+	elif command == 'commands':
 		print("""
 		Commands - Command lost
 		Help - Get an idea of what to do
@@ -1049,7 +1073,3 @@ while health > 0:
 		diamond += 100
 		leather += 100
 		feathers += 100
-
-if health <= 0:
-	running = False
-	print('You died! You survived', turn, 'turns, and killed', killed, "monsters. Thanks for playing, try again soon!")
