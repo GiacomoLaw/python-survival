@@ -180,6 +180,7 @@ def easy_quest():
 					turn += 1
 					break
 
+### incomplete - new quest data not added as well as missing mechanics
 def medium_quest():
 	chance = randint(1, 3)
 	global quest
@@ -192,17 +193,17 @@ def medium_quest():
 	global food
 	### quest 1
 	if chance == 1:
-		print('\nA person asks you to bring them 3 feathers.')
-		if feathers >= 3:
-			print('You already have 3 feathers. You give them over.')
-			feathers -= 3
-			print('You now have', feathers, 'feathers.')
+		print('\nA person asks you to bring them 6 wood.')
+		if wood >= 6:
+			print('You already have 6 wood. You give them over.')
+			wood -= 6
+			print('You now have', wood, 'wood.')
 			quests_completed += 1
-			stone += 2
+			stone += 6
 			print('\nThe person thanks you and hands over some stone. You now have', stone, 'stone.')
 			quest = False
-		if feathers <= 2:
-			print('\nGo and find three feathers.')	
+		if wood <= 5:
+			print('\nGo and find five wood.')	
 			sleep(1)
 			while quest is True:
 				print('\nChoose an option.')
@@ -214,7 +215,7 @@ def medium_quest():
 					for _ in range(10):
 						quest_explore()
 						if feathers >= 3:
-							print('\n\nYou found 3 feathers!')
+							print('\n\nYou found 5 wood!')
 							feathers -= 3
 							quests_completed += 1
 							stone += 2
@@ -313,7 +314,8 @@ def medium_quest():
 					print('You gave up on the quest.')
 					turn += 1
 					break
-					
+
+### incomplete - new quest data not added as well as missing mechanics
 def hard_quest():
 	chance = randint(1, 3)
 	global quest
@@ -448,6 +450,7 @@ def hard_quest():
 					turn += 1
 					break
 					
+### incomplete - new quest data not added as well as missing mechanics
 def extreme_quest():
 	chance = randint(1, 3)
 	global quest
