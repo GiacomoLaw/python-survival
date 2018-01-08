@@ -933,7 +933,6 @@ while health > 0:
 	##################### FOOD AND WATER LIST #####################
 	elif command == 'f':
 		print('Food -', food)
-		print('Water -', water)
 	
 	##################### HEALTH STATS #####################
 	elif command == 'h':
